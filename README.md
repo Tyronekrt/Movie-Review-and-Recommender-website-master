@@ -1,21 +1,32 @@
 # Movie-Review-and-Recommender-website
 This project is a movie review and recommender system using python and django as the web framework
 
-First install django 
-Then install these packages :
+## Setup
 
-1)django crispy forms
-2)random
-3)pillow
-4)IMDBpy
-5)pickle
+1. Create and activate a virtual environment:
+   ```bash
+   python -m venv .venv
+   source .venv/bin/activate
+   ```
+2. Install dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
+3. Create your local environment file:
+   ```bash
+   cp .env.example .env
+   ```
+   Set a long random value for `DJANGO_SECRET_KEY` in `.env`. Email credentials
+   are optional for local development; by default email is printed to the console.
+4. Run migrations:
+   ```bash
+   python manage.py migrate
+   ```
+5. Start the server:
+   ```bash
+   python manage.py runserver
+   ```
+6. Open http://127.0.0.1:8000/.
 
-Steps:
-
-1) Navigate to the movie_reviews folder using command prompt
-2) Run the following commands to perform migration of databases :
- python manage.py makemigrations
- python manage.py migrate
-3) Then use the below command to start the server and run website
- python manage.py runserver
-4) Search for http://127.0.0.1:8000/ in either chrome or firefox
+Never commit `.env`, `db.sqlite3`, or uploaded profile images. They are ignored
+by Git because they can contain credentials and personal data.
