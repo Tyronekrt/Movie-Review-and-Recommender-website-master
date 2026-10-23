@@ -1,0 +1,22 @@
+<article class="poster-card reveal">
+  <a class="poster-link" href="{% url 'view_movie' m.id %}" aria-label="View details for {{ m.title|title }}">
+    <div class="poster-media">
+      {% if m.img %}
+        <img class="poster-img" src="{{ m.img.url }}" alt="{{ m.title|title }} poster" loading="lazy">
+      {% else %}
+        <div class="poster-placeholder" aria-hidden="true">{{ m.title|first|upper }}</div>
+      {% endif %}
+      <div class="poster-overlay">
+        <span class="poster-action">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M8 5.5v13l10-6.5-10-6.5Z" fill="currentColor"/></svg>
+          View details
+        </span>
+      </div>
+      <span class="poster-rating">&#9733; {{ m.imdb_rating|floatformat:1 }}</span>
+    </div>
+    <div class="poster-body">
+      <h3 class="poster-title">{{ m.title|title }}</h3>
+      <p class="poster-meta">{{ m.year }} <span>&bull;</span> {{ m.genre }}</p>
+    </div>
+  </a>
+</article>
