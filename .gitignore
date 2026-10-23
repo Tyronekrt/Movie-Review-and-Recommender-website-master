@@ -3,3 +3,10 @@ __pycache__/
 *.py[cod]
 *.sqlite3-journal
 .DS_Store
+
+.env
+.env.*
+!.env.example
+
+db.sqlite3
+media/profile_pics/
